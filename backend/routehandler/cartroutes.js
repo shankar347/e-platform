@@ -141,7 +141,7 @@ const getusercart=async(req,res)=>{
       
       if(!cart)
         {
-          return res.json({error:'Cart is not found'})
+           res.json([])
         }  
     
       const findindex=cart.products.findIndex((product)=>(

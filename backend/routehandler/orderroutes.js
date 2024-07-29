@@ -43,7 +43,7 @@ const getorder=async(req,res)=>{
    
    if(!orders || orders.length===0)
    {  
-    return res.json({error:'Orders is not found'})
+    res.json([])
    }
    res.json(orders)
 
@@ -58,7 +58,12 @@ const getallorders=async(req,res)=>{
   try{
     const orders=await ordermodel.find()
     .populate('orderitems.productid')
-  
+
+    if(!orders)
+    {
+      res.json([])
+    }
+    
     res.json(orders)
 
   }

@@ -62,6 +62,11 @@ const getallproduct=async(req,res)=>{
     try
     {
         const allproducts=await productmodel.find({}).sort({createdAt:1})
+        
+        if(!allproducts)
+        {
+            res.json([])
+        }
 
         res.json(allproducts)
     }
@@ -91,8 +96,10 @@ const gettopproducts=async(req,res)=>{
             }
         ]).limit(4)
         
-        
-    
+        if(!topproducts)
+       {
+        res.json([])
+       }
         res.json(topproducts)
     }
     catch(err)
@@ -106,6 +113,11 @@ const getnewproducts=async(req,res)=>{
   {
     const products=await productmodel.find()
     .sort({createdAt:-1}).limit(4)
+
+    if(!products)
+    {
+        res.json([])
+    }
 
     res.json(products)
   }
@@ -122,6 +134,11 @@ const getrandomproduct=async(req,res)=>{
         const randomovies=await productmodel.aggregate(
         [{$sample:{size:4}}]
     ).limit(4)
+
+    if(!randomovies)
+    {
+        res.json([])
+    }
     res.json(randomovies)
     }
     catch(err)
@@ -240,6 +257,11 @@ const getallreivews=async(req,res)=>{
       }
        
       const reviews= product.reviews
+
+      if(!reviews)
+      {
+        res.json([])
+      }
 
       res.json(reviews)
         

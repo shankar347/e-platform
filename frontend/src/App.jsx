@@ -51,7 +51,7 @@ function App() {
 
       
 <div className="relative" >
-  <Productsearchmodel/>
+  {user &&  <Productsearchmodel/> }
     <Routes>
       <Route path="/auth" element={<Auth/>} />
        <Route path="/" element={user ? <Mainpage/> : <Navigate to={'/auth'}/> }/>
@@ -68,9 +68,8 @@ function App() {
        <Route path="/:id/paymentoptions" 
       element={user ? <Paymentoptionspage/>  : <Navigate to={'/auth'}/>}/>
        <Route  />
-       <Route path="/:id/payment-options" 
-      element={user ? <Paymentoptionpage/>  : <Navigate to={'/auth'}/>}/>
-       <Route  />
+       <Route path="/:id/payment-option"  
+        element={user ? <Paymentoptionpage/>  : <Navigate to={'/auth'}/>}/>
       <Route path="/admin/productupload"
       element={user && user?.admin ? <Uploadproduct/> 
       : <Navigate to={'/auth'}/>}/>

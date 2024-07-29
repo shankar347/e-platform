@@ -19,6 +19,7 @@ const [orders,setorders]=useState(null)
 const [totalamount,settotalamount]=useState(0)
 const [selected,setselected]=useState([])
 const [adminorders,setadminorders]=useState(null)
+console.log(allsiteproducts)  
 useEffect(()=>{
 
   const getallproducts=async()=>{
