@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.sidebarbtn{
+    background-color: white ;
+    width: 110px;
+    border:2px solid rgb(195, 195, 195);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    padding:3px 0;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+.sidebarbtn:hover
+{
+    background-color: rgb(207, 207, 207);
+}
+
+.reiviewmodel
+{
+    box-sizing: border-box;
+    box-shadow: 0px 1px 17px 0px;
+}
+
+
+.sidebarbtn:focus
+{
+    background-color: rgb(207, 207, 207);
+  
+}
+.navbar
+{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 1px 0px 12px 0px;
+}
+.downbar
+{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 1px 0px 12px 0px;
+}
+
+.searchmodel
+{
+    box-sizing: border-box;
+    box-shadow: 1px 0px 12px 0px;
+}
+
+.profileborder
+{
+    border-bottom: 1px solid rgb(175, 175, 175);
+    color: rgba(93, 75, 31, 0.801);
+}
+::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 50%;
+    height: 5px;
+    margin-top: 2px;
+}
+::-webkit-scrollbar-track{
+    background-color:transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:rgb(195, 195, 195);
+}
+/* .searchmodelitems
+{
+    overflow: scroll;
+} */
