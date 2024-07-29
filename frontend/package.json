@@ -14,6 +14,7 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "backend": "file:..",
     "framer-motion": "^11.3.8",
     "qrcode.react": "^3.1.0",
     "react": "^18.3.1",
