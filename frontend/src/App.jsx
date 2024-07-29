@@ -71,7 +71,7 @@ function App() {
        <Route path="/:id/payment-option"  
         element={user ? <Paymentoptionpage/>  : <Navigate to={'/auth'}/>}/>
       <Route path="/admin/productupload"
-      element={user && user?.admin ? <Uploadproduct/> 
+      element={user && user?.isadmin ? <Uploadproduct/> 
       : <Navigate to={'/auth'}/>}/>
       <Route path="/:userid/:productid"   
       element={user ? <Eachproductpage/> : <Navigate to={'/auth'}/>}/>
@@ -80,7 +80,7 @@ function App() {
       <Navigate to={'/auth'}/>} />  
      {
       <Route path="/admin/updateorders"
-      element={user && !user?.admin ? <Adminorderpage/> 
+      element={user && !user?.isadmin ? <Adminorderpage/> 
       : <Navigate to={'/'}/>}/>     
      }
       </Routes>

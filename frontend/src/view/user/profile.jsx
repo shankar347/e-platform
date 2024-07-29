@@ -122,7 +122,7 @@ const Profile = () => {
      <div className='flex   sm:flex-row sm:gap-1
        flex-col md:flex-row lg:flex-row 
       justify-center 
-       md:gap-10 lg:gap-10
+       md:gap-10 lg:gap-10  
       gap-5 pt-5'>
      <Profilecart content={"Change or edit your password"} 
       header={"Login & Secuity"}
@@ -169,6 +169,16 @@ const Profile = () => {
     cursor-pointer' 
     onClick={()=>navigate('/admin/productupload')}>
       Upload product
+    </div>
+    
+  }
+
+  {
+    user?.isadmin && 
+    <div className='underline hover:text-orange-400 
+    cursor-pointer' 
+    onClick={()=>navigate('/admin/updateorders')}>
+      Update orders
     </div>
   }
     </div>
