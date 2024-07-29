@@ -8,7 +8,7 @@ const Authuser=async(req,res,next)=>{
     
         if(!token)
     {
-        return req.json('User is unauthorized')
+        return res.json('User is unauthorized')
     }
     
     const decoded=jwt.verify(token,process.env.JWT_KEY)
