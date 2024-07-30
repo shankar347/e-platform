@@ -222,7 +222,7 @@ const Eachproductpage = () => {
    <>
    {
     productloading ? <div className='flex w-full
-    items-center justify-center'>
+    items-center justify-center mt-5 '>
      <Spinner/>
     </div> :
      <div style={{userSelect:'none'}} className='flex 

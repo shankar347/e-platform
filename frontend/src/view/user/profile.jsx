@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import img1 from '../../assets/compra_online.jpg'
+
 import { useRecoilState, useRecoilValue } from 'recoil'
 import useratom from '../atom/useratom'
 import Profilecart from '../proudctpage/profilecart'

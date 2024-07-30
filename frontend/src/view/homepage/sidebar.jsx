@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import avator from '../../assets/1.jpg'
 import {useRecoilValue} from 'recoil'
 import useratom from '../atom/useratom'
 import {Avatar} from '@chakra-ui/react'
@@ -9,6 +8,7 @@ import { FaShoePrints } from 'react-icons/fa'
 import { GiRunningShoe } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom'
 import { prouductcontext } from '../proudctpage/productcontext'
+import logo from '../../assets/cartlogo.png'
 
 const Sidebar = () => {
  
@@ -76,9 +76,10 @@ const Sidebar = () => {
    <Imageslider />}   
     <div className='absolute flex gap-3 items-center
      left-1/2 transform -translate-x-1/2 bottom-2'>
-    <GiRunningShoe className='w-7 h-7'/> 
-    <div className='text-md font-semibold'>
-      Get-Foot
+     <img src={logo} 
+     className='w-7 h-7 rounded' />
+    <div className='text-lg font-poppins font-semibold'>
+     sravcart
     </div>
     </div>
     </div>

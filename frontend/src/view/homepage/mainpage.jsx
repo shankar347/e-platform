@@ -5,8 +5,9 @@ import instagram from '../../assets/instagram.png'
 import facebook from '../../assets/facebook.png'
 import twitter from '../../assets/twitter.png'
 import { prouductcontext } from '../proudctpage/productcontext'
-import { Spinner } from '@chakra-ui/react'
-
+import { Spinner } from '@chakra-ui/react'  
+import logo from '../../assets/cartlogo.png'
+import indialogo from '../../assets/square.png'
 
 const Mainpage = () => {
 
@@ -131,9 +132,10 @@ const [loading,setLoading]=useState(false)
           </div>
           <div className='flex flex-col  mt-5 '>
           <div className='flex gap-2  items-center   justify-center'>
-           <GiRunningShoe className='w-10 h-10'/>
-           <div className='font-poppins text-2xl  font-medium'>
-            Get-Foot
+          <img src={logo} 
+     className='w-7 h-7 rounded' />
+           <div className='font-poppins text-lg  font-semibold'>
+            sravcart
             </div> 
           </div>
           <div className='flex justify-center'>
@@ -147,9 +149,10 @@ const [loading,setLoading]=useState(false)
             For any help or problems contact us
           </div>
           <div className='flex gap-2 items-center mt-2'>
-            <GiUsaFlag/>
+          <img src={indialogo} 
+     className='w-5 h-5 rounded' />
             <div className='text font-md'>
-              +919363360016
+              +91 9940394425
             </div>
           </div>
           <div className='flex gap-2 mt-5 pb-5'>

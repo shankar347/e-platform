@@ -193,7 +193,7 @@
     }
       {
         cartloading && <div className='flex w-full 
-        justify-center items-center ' >
+        justify-center mt-5  items-center ' >
         <Spinner/>
         </div>
       }

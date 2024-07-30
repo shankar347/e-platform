@@ -13,8 +13,9 @@ const Adminorderinfo = ({order}) => {
    const [loading,setLoading]=useState(false)
    const [updatedstatus,setupdatedstatus]=useState(order?.status || null)
    const {adminorders:orders,setadminorders:setorders} =useContext(prouductcontext) 
-   console.log(updatedstatus)
-   console.log(order1)
+  //  console.log(updatedstatus)
+  //  console.log(order1)
+  console.log(user?.address)
   useEffect(()=>{
     const fetchuser=async()=>{
         try{
@@ -71,11 +72,11 @@ const Adminorderinfo = ({order}) => {
     <>
     {
         loading ? <div
-        className='w-full flex justify-center items-center'>
+        className='w-full flex justify-center mt-5 items-center'>
           <Spinner/>
         </div>
         :
-        <div className='flex px-1 flex-col h-[200px]'>
+        <div className='flex px-1 flex-col h-[270px]'>
     <div className='flex 
      gap-6'>
      <Avatar name={user?.name} 
@@ -125,7 +126,8 @@ const Adminorderinfo = ({order}) => {
             Delivered
           </option>
         </select>
-        :  <div className={`text-md font-medium        ${order1?.status === 
+        :  <div className={`text-md font-medium   
+            h-[30px]     ${order1?.status === 
             "Delivered" ? "text-green-400"
              : order1?.status === "Cancelled" ?
                  "text-red-400" : order1?.status === "Pending" ?
@@ -137,6 +139,48 @@ const Adminorderinfo = ({order}) => {
      }
       </div>
     </div>
+    <div className='flex flex-col pl-2'>
+      <div className='flex gap-4'>
+      {
+        user?.address?.housenumber &&
+        <div className='font-medium text-md'>
+          {user?.address?.housenumber}
+        </div>
+        
+      }    
+       {
+        !user?.address?.streetname &&
+        <div className='font-medium text-md'>
+          kuyvar street
+        </div>       
+      }  
+      </div>
+      {
+        !user?.address?.area &&
+        <div className='font-medium text-md'>
+          t nagar
+        </div>       
+      }  
+
+      <div className='flex gap-2'>
+      {
+        !user?.address?.nearestplace &&
+        <div className='font-medium text-md'>
+          amman kovil
+        </div>       
+      }  
+       {
+        !user?.address?.pincode &&
+        <div className='font-medium text-md'>
+          603109
+        </div>       
+      }  
+
+
+
+       </div>
+
+    </div>
     <div className='flex gap-4 items-center  px-2'>
      <div className='flex flex-col'>
      <div className='text-md font-medium'>
@@ -147,7 +191,7 @@ const Adminorderinfo = ({order}) => {
        </div>
        </div>
       {
-        !update &&
+        !update ?
         <button className='w-28 h-9 rounded-full
         bg-[rgb(244,174,44)] cursor-pointer
         focus:bg-orange-400
@@ -155,6 +199,14 @@ const Adminorderinfo = ({order}) => {
         onClick={()=>setupdate(true)}>
          update 
        </button>
+       :
+       <button className='w-28 h-9 rounded-full
+       bg-red-400 cursor-pointer
+       focus:bg-red-300
+       hover:bg-red-300'
+       onClick={()=>setupdate(false)}>
+        cancel 
+      </button>
       }
     </div>
     </div>

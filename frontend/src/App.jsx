@@ -80,7 +80,7 @@ function App() {
       <Navigate to={'/auth'}/>} />  
      {
       <Route path="/admin/updateorders"
-      element={user && !user?.isadmin ? <Adminorderpage/> 
+      element={user && user?.isadmin ? <Adminorderpage/> 
       : <Navigate to={'/'}/>}/>     
      }
       </Routes>

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { prouductcontext } from './productcontext'
-import { Flex, Spinner, Text} from '@chakra-ui/react'
+import { Flex, Spinner, Text, useToast} from '@chakra-ui/react'
 import {useMediaQuery} from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
@@ -25,7 +25,9 @@ const Ordercreate = () => {
 
     const [details,setdetails]=useState(null)
     console.log(details)
-   
+    
+    const toast=useToast()
+
     let value;
    
     useEffect(()=>{
@@ -42,11 +44,26 @@ const Ordercreate = () => {
     }
  
     console.log(details)
-
+    console.log(user?.address)
     const createorder=async()=>{
 
       try{
        if(!details) return;
+   
+       if(!user?.address?.housenumber ||
+        !user?.address?.nearestplace ||
+        !user?.address?.pincode ||
+        !user?.address?.streetname ||
+        !user?.address?.area
+       )
+      {
+        toast({
+          description:"Fill all details in address",
+          status:'error',
+          duration:2000,
+        })
+        return
+      }
        setloading(true)
        const fetchproductfromcart=details?.selected?.map(async(cartid)=>{
        
@@ -171,7 +188,7 @@ const Ordercreate = () => {
           }}
           >
         {
-          loading ? <Spinner/> : 
+          loading ?  <Spinner/> : 
           <div className='text-md font-medium'>
             {checkphone ? "Confirm order" : "Confirm"  }
           </div>

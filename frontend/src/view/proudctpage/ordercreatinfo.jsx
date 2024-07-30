@@ -66,8 +66,8 @@ const Ordercreateinfo = ({product}) => {
    <>
    {
     loading ?
-    <div className='flex w-full
-    items-center justify-center'>
+    <div className='flex w-full h-[250]
+    items-center  justify-center'>
         <Spinner/>
     </div> : 
         <div 

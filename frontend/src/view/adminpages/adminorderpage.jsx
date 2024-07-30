@@ -33,7 +33,7 @@ const Adminorderpage = () => {
    <>
    {
     loading ? <div 
-    className='w-full flex  justify-center items-center '>
+    className='w-full flex mt-5  justify-center items-center '>
        <Spinner/>
     </div> :
      <div style={{userSelect:'none'}} 

@@ -41,7 +41,7 @@ const Favourtepage = () => {
    <>
    {
     loading ? <div 
-    className='flex w-full justify-center
+    className='flex w-full justify-center mt-5 
      items-center'>
    <Spinner/>
     </div> : 

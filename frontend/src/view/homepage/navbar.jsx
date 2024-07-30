@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 import useratom from '../atom/useratom'
 import { prouductcontext } from '../proudctpage/productcontext'
+import logo from '../../assets/cartlogo.png'
+
 
 const Navbar = () => {
 
@@ -20,12 +22,17 @@ const Navbar = () => {
     <div className='w-[100%] h-10 flex items-center
      bg-[rgb(244,174,44)]  navbar  ' style={{userSelect:'none'}}>
      <div className='flex  md:gap-3 lg:gap-3 sm:gap-3
-     gap-1   md:pl-5
+     gap-1   md:pl-5 items-center
      lg:pl-5 sm:pl-5 pl-2'>
-     <GiRunningShoe className="w-8 h-8"/>
-     <p className='font-poppins sm:text-xl  lg:text-xl 
-     md:text-xl  text-md mt-1 hidden  
-     md:block lg:block' >Get-Foot</p>
+         <img src={logo} 
+     className='md:w-7 md:h-7 lg:w-7 lg:h-7
+     sm:w-7 sm:h-7  w-6 h-6  rounded' />
+     <p className=' sm:text-lg  lg:text-lg 
+     md:text-lg  text-md mt-1 hidden  
+     md:block lg:block
+     font-poppins font-semibold' >
+      sravcart
+     </p>
      </div>
      <div className='flex flex-1 justify-around   '>
       <div className='bg-white rounded-full h-7 

@@ -1,7 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import img1 from '../../assets/applewatchultra2.webp'
-import img2 from '../../assets/iphone15.webp'
-import img3 from '../../assets/laptop1.webp'
 import { Box } from '@chakra-ui/react'
 import { prouductcontext } from '../proudctpage/productcontext'
 
@@ -11,7 +8,7 @@ const Imageslider = () => {
   const {allsiteproducts,setallsiteproducts}=useContext(prouductcontext)
   const [images,setimages]=useState([]) 
   const [storyindex,setstoryindex]=useState(0)
-  console.log(images)
+  // console.log(images)
   
   const getrandomimage=()=>{
     if(allsiteproducts && allsiteproducts.length >0 )

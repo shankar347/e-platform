@@ -147,7 +147,7 @@ const Register = () => {
         }
             justify-center items-center rounded`}>
             <FaPhoneAlt className='ml-1'/>   
-           <input placeholder='Enter number'
+           <input placeholder='Enter UPI number'
            value={number}
            onFocus={handlefocus2}
            onBlur={handleblur2}
