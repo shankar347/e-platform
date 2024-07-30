@@ -23,7 +23,7 @@ const Navbar = () => {
      bg-[rgb(244,174,44)]  navbar  ' style={{userSelect:'none'}}>
      <div className='flex  md:gap-3 lg:gap-3 sm:gap-3
      gap-1   md:pl-5 items-center
-     lg:pl-5 sm:pl-5 pl-2'>
+     lg:pl-5 sm:pl-4 pl-2'>
          <img src={logo} 
      className='md:w-7 md:h-7 lg:w-7 lg:h-7
      sm:w-7 sm:h-7  w-6 h-6  rounded' />
