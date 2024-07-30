@@ -1,5 +1,4 @@
   import React, { useContext, useEffect, useState } from 'react'
-  import img1 from '../../assets/laptop1.webp'
   import star from '../../assets/star.png'
   import heart from '../../assets/emptyheart.png'
   import redheart from '../../assets/heart.png'
