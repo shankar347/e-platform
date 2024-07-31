@@ -6,7 +6,7 @@ const Cartinfo = ({product,onClick,selected,setselected}) => {
    
     console.log(selected)
 
-      const [totalcount,settotalcount]=useState(product?.quantity || 0 )
+      const [totalcount,settotalcount]=useState(0 )
     const [product1,setproduct]=useState(null)
 
     const {allcartproducts,setallcartproducts,
@@ -18,6 +18,13 @@ const Cartinfo = ({product,onClick,selected,setselected}) => {
   const toast=useToast()
   
   var totalprice= product?.quantity *  product1?.price
+
+  useEffect(()=>{
+   if(product?.quantity )
+   {
+    settotalcount(product?.quantity )
+   }
+  },[product?.quantity ])
 
   const increasequantity=async()=>{
    
@@ -113,7 +120,7 @@ const Cartinfo = ({product,onClick,selected,setselected}) => {
   const removeproduct=async()=>{
      try{
       setcartloading(true)
-      const res=await fetch('/  api/cart/remove',
+      const res=await fetch('/api/cart/remove',
         {
           method:'POST',
           headers:{
@@ -171,7 +178,8 @@ const Cartinfo = ({product,onClick,selected,setselected}) => {
     border-gray-300 h-40 mx-2 lg:mx-4 md:mx-4 sm:mx-4 py-2'>
      <div className='md:w-36 lg:w-36 sm:w-36  w-36 h-full '>
      <img src={product1?.image} alt='' 
-     className='w-[100%] h-full'/>
+     className='w-[100%] h-full'
+     loading='lazy'/>
      </div>
      <div className='flex items-center justify-center flex-col ml-2 sm:ml-7 md:flex-row
      lg:flex-row '>

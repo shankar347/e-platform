@@ -40,11 +40,12 @@ const Favourtepage = () => {
     return (
    <>
    {
-    loading ? <div 
+    loading && <div 
     className='flex w-full justify-center mt-5 
      items-center'>
    <Spinner/>
-    </div> : 
+    </div> 
+} 
       <div style={{userSelect:'none'}} 
       className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>
           <div className='flex  pl-2 pt-3 
@@ -74,6 +75,12 @@ const Favourtepage = () => {
         </div>
         </div>                  */}
         </div>
+        {
+  !loading && favourite?.length ===0  ? 
+        <div style={{userSelect:'none'}} className='flex flex-col 
+        text-lg font-medium items-center mt-40 justify-center'>
+          No favourite prodects yet
+        </div>  :   
         <div  className={`flex items-center  
        ${favourite?.length % 4 === 0 ?  "justify-center" : 
          "justify-start "} mx-2
@@ -88,8 +95,9 @@ const Favourtepage = () => {
           ))
         }
         </div>
+}
       </div>
-   }
+   
    </>
   )
 }

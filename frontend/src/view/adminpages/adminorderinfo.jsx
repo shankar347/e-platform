@@ -33,6 +33,9 @@ const Adminorderinfo = ({order}) => {
   },[order?.userid])
 
 
+  
+  console.log(user)
+
   const handleupdate=async(status)=>{
     try{
         setLoading(true)

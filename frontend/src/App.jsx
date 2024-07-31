@@ -68,8 +68,9 @@ function App() {
        <Route path="/:id/paymentoptions" 
       element={user ? <Paymentoptionspage/>  : <Navigate to={'/auth'}/>}/>
        <Route  />
-       <Route path="/:id/payment-option"  
-        element={user ? <Paymentoptionpage/>  : <Navigate to={'/auth'}/>}/>
+       <Route path="/:id/paymentways"  
+        element={user ? <Paymentoptionpage/>  :
+         <Navigate to={'/auth'}/>}/>
       <Route path="/admin/productupload"
       element={user && user?.isadmin ? <Uploadproduct/> 
       : <Navigate to={'/auth'}/>}/>

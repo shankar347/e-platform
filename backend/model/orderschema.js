@@ -34,7 +34,7 @@ const orderschema=new mongoose.Schema({
         default:Date.now
     }
 },{
-    timeseries:true
+    timestamps:true
 })
 
 const ordermodel=mongoose.model('Order',orderschema)

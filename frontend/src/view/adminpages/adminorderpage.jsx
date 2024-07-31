@@ -11,9 +11,8 @@ const Adminorderpage = () => {
    const {adminorders:orders,setadminorders:setorders} =useContext(prouductcontext)
    useEffect(()=>{
     const fetchproduct=async()=>{
-     
      try{
-        setloading(true)
+      setloading(true)
       const res=await fetch('/api/order')
       const data=await res.json()
       setorders(data)   
@@ -32,10 +31,15 @@ const Adminorderpage = () => {
   return (
    <>
    {
-    loading ? <div 
+    loading && <div 
     className='w-full flex mt-5  justify-center items-center '>
        <Spinner/>
-    </div> :
+    </div> }
+    {! loading && orders?.length ===0  ? 
+        <div className='flex flex-col 
+        text-lg font-medium items-center mt-40 justify-center'>
+          No orders yet
+        </div>  : 
      <div style={{userSelect:'none'}} 
      className={`flex md:flex-row lg:flex-row sm:flex-row 
         md:mx-10 lg:mx-10

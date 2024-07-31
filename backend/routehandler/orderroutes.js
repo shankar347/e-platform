@@ -56,7 +56,8 @@ const getorder=async(req,res)=>{
 
 const getallorders=async(req,res)=>{
   try{
-    const orders=await ordermodel.find()
+    const orders=await ordermodel.find().sort(
+      {createdAt:-1})
     .populate('orderitems.productid')
 
     if(!orders)

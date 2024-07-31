@@ -66,7 +66,7 @@ const Ordercreateinfo = ({product}) => {
    <>
    {
     loading ?
-    <div className='flex w-full h-[250]
+    <div className='flex w-full h-[250px]
     items-center  justify-center'>
         <Spinner/>
     </div> : 
@@ -80,7 +80,8 @@ const Ordercreateinfo = ({product}) => {
          <div className='md:w-[250px] 
          lg:w-[250px] w-[200px]  h-[250px] '>
           <img src={product1?.image} alt='' 
-          className="w-full h-full" />
+          className="w-full h-full" 
+          loading='lazy'/>
          </div>
          <div className='flex flex-col'>
             <div className='md:text-4xl

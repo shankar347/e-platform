@@ -37,10 +37,17 @@ const Orderpage = () => {
     return (
    <>
    {
-    loading ? <div className='flex justify-center
-    items-center w-full'>
+    loading && <div className='flex justify-center
+    items-center w-full mt-5'>
   <Spinner/>
-    </div> : 
+    </div> 
+    }
+      {
+        ! loading && orders?.length ===0  ? 
+        <div className='flex flex-col 
+        text-lg font-medium items-center mt-40 justify-center'>
+          No orders yet
+        </div>  : 
      <div style={{userSelect:'none'}} 
      className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>
          <div className='flex  pl-2 pt-3 
@@ -69,6 +76,7 @@ const Orderpage = () => {
       ))
     }
        </div>
+      
      </div>
    }
    </>

@@ -36,7 +36,7 @@ const Navbar = () => {
      </div>
      <div className='flex flex-1 justify-around   '>
       <div className='bg-white rounded-full h-7 
-      md:w-[350px] pl-2
+      md:w-[350px] pl-2 ml-7
       lg:w-[640px] flex items-center sm:w-[400px] w-[210px]'>
        <FaSearch/>
        <input type="text" 

@@ -85,7 +85,7 @@ const [loading,setLoading]=useState(false)
     <>
     {
       loading ? <div className='flex w-full
-      items-center justify-center'>
+      items-center justify-center mt-10'>
         <Spinner />
       </div> : 
          <div 

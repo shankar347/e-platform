@@ -114,7 +114,7 @@ const Profile = () => {
       content={"Check your orders and order tracking"}
       header={"Your Orders"} img={productitem}/>
       <Profilecart 
-      onclickfunction={()=>navigate(`/${user._id}/payment-options`)}
+      onclickfunction={()=>navigate(`/${user._id}/paymentways`)}
       content={"Manage and edit Your payment options"} 
       header={"Payment Options"} img={productcard}/>
      
