@@ -15,11 +15,13 @@ import { useNavigate } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
 
 const Profile = () => {
-  const [user,setuser]=useRecoilState(useratom)
+  const [user1,setuser]=useRecoilState(useratom)
+  const user=user1.token
+  // console.log(user1)
   const navigate=useNavigate()
   const {searchproduct,setsearchproduct}=useContext(prouductcontext)
   const toast=useToast()
-  console.log(user)
+  // console.log(user)
   const handledeleteaccount=async()=>{
     try
     {

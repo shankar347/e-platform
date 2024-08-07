@@ -26,7 +26,8 @@ const Eachproductpage = () => {
 
 
    const toast=useToast()
-   const user=useRecoilValue(useratom)
+   const user1=useRecoilValue(useratom)
+   const user=user1?.token
    const inputref=useRef(null)
 
    const createreview=async()=>{

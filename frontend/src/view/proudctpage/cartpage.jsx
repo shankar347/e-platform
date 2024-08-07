@@ -125,9 +125,10 @@
 
     }
 
-      const user=useRecoilValue(useratom)
+      const user1=useRecoilValue(useratom)
       const {searchproduct,setsearchproduct}=useContext(prouductcontext)
-      
+      // console.log(user1)
+      const user=user1.token
       return (
       <div style={{userSelect:'none'}} 
       className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>

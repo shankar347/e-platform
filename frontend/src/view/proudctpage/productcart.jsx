@@ -13,7 +13,8 @@ import useratom from '../atom/useratom'
     const toast = useToast()
     const [like,setlike]=useState(false)
     const [loading, setLoading] =useState(false)
-    const user=useRecoilValue(useratom)
+    const user1=useRecoilValue(useratom)
+    const user=user1?.token
     const {allcartproducts,setallcartproducts} =useContext(prouductcontext)
     const navigate=useNavigate()
     console.log(product  )

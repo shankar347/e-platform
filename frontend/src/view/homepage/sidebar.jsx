@@ -13,8 +13,8 @@ import logo from '../../assets/cartlogo.png'
 const Sidebar = () => {
  
   const navigate=useNavigate()
-  const user=useRecoilValue(useratom)
-
+  const user1=useRecoilValue(useratom)
+  const user=user1?.token 
 
     const {allsiteproducts,setallsiteproducts}=useContext(prouductcontext)
 

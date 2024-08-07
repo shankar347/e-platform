@@ -9,7 +9,8 @@ import { Spinner } from '@chakra-ui/react'
 const Orderinfo = ({product,status,date}) => {
 
     const path=useLocation()
-    const user=useRecoilValue(useratom)
+    const user1=useRecoilValue(useratom)
+    const user=user1?.token
     const pathname=path.pathname === `/${user._id}/orders`
     const [product1,setproduct]=useState(null)
     const [loading,setloading]=useState(false)

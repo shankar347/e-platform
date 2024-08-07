@@ -12,7 +12,8 @@ const Productmodelinfo = ({product}) => {
   
     const toast = useToast()
     const [like,setlike]=useState(false)
-    const user=useRecoilValue(useratom)
+    const user1=useRecoilValue(useratom)
+    const user=user1?.token
     const {allcartproducts,setallcartproducts,
       setsearchproduct  ,
       favourite,setfavoutie    

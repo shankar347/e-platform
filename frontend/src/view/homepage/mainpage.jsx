@@ -29,8 +29,8 @@ const Mainpage = () => {
     selected,setselected
 } = useContext(prouductcontext)
 
-console.log(totalamount)
-console.log(selected)
+// console.log(totalamount)
+// console.log(selected)
 
 const [loading,setLoading]=useState(false)
 

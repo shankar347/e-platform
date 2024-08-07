@@ -31,7 +31,8 @@ const Profileupdate = () => {
   const handlefocus3=()=>setisfocused3(true)
   const handleblur3=()=>setisfocused3(false)
   
-  const [user,setuser]=useRecoilState(useratom)
+  const [user1,setuser]=useRecoilState(useratom)
+  const user=user1?.token
   const [loading,setloading]=useState(false)
   console.log(user)
   const toast=useToast()

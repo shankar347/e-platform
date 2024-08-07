@@ -8,7 +8,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 const Paymentoptionspage = () => {
 
-  const user=useRecoilValue(useratom)
+  const user1=useRecoilValue(useratom)
+  const user=user1?.token
   const [details,setdetails]=useState(null)
   const [qrcode,setqrcode]=useState(null)
   const [ismobile,setismobiledevice]=useState(false)

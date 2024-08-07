@@ -16,8 +16,8 @@ const Ordercreate = () => {
         selected,setselected
     } = useContext(prouductcontext)
     
-    const user=useRecoilValue(useratom)
-   
+    const user1=useRecoilValue(useratom)
+    const user=user1?.token
     const checkphone=useMediaQuery({query:'(min-width: 768px)'})
     console.log(checkphone)
     const navigate=useNavigate()

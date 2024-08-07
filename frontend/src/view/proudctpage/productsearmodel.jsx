@@ -17,6 +17,7 @@ const Productsearchmodel = () => {
       product.name.toLowerCase().includes(searchtext.toLowerCase())
     ))
 
+    
   //  console.log(filteredproducts)
   
 

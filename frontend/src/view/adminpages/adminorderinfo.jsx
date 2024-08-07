@@ -7,7 +7,8 @@ const Adminorderinfo = ({order}) => {
   
 
    
-   const [user,setuser]=useState(null)
+   const [user1,setuser]=useState(null)
+   const user=user1?.token
    const [order1,setorder]=useState(order)
    const [update,setupdate]=useState(false)
    const [loading,setLoading]=useState(false)

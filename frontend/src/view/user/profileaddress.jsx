@@ -14,9 +14,9 @@ const Profileaddress = () => {
     area:''
   })  
   
-  const [user,setuser]=useRecoilState(useratom)
+  const [user1,setuser]=useRecoilState(useratom)
   const [loading,setloading]=useState(false)
-
+  const user=user1.token
   const navigate=useNavigate()
   const toast=useToast()
 

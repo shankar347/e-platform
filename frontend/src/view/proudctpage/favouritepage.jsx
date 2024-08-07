@@ -39,28 +39,19 @@ const Favourtepage = () => {
 
     return (
    <>
-   {
-    loading && <div 
-    className='flex w-full justify-center mt-5 
-     items-center'>
-   <Spinner/>
-    </div> 
-} 
-      <div style={{userSelect:'none'}} 
-      className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>
-          <div className='flex  pl-2 pt-3 
-           justify-between'>
-          <div className='flex flex-col gap-1
-          md:flex-row  sm:flex-row md:items-center 
-          lg:items-center  sm:items-center lg:flex-row'>
-          <div className='md:text-md
-          lg:text-md   text-sm font-md'>
-        Your favourite products
-       </div>
-      <div className='text-md font-medium'>
-          {user?.name}
-      </div>
-      </div>
+      <div className='flex  pl-2 pt-3 
+     justify-between'>
+    <div className='flex flex-col gap-1
+    md:flex-row  sm:flex-row md:items-center 
+    lg:items-center  sm:items-center lg:flex-row'>
+    <div className='md:text-md
+    lg:text-md   text-sm  font-semibold'>
+  Your favourite products
+ </div>
+<div className='text-md font-medium'>
+    {user?.name}
+</div>
+</div>
         {/* <div className='md:text-md
           lg:text-md   text-sm 
         md:mr-3 lg:mr-3 mr-1
@@ -75,12 +66,24 @@ const Favourtepage = () => {
         </div>
         </div>                  */}
         </div>
-        {
+   {
+    loading && <div 
+    className='flex w-full justify-center mt-5 
+     items-center'>
+   <Spinner/>
+    </div> 
+}  {
   !loading && favourite?.length ===0  ? 
-        <div style={{userSelect:'none'}} className='flex flex-col 
-        text-lg font-medium items-center mt-40 justify-center'>
-          No favourite prodects yet
-        </div>  :   
+   
+  <div style={{userSelect:'none'}} className='flex flex-col 
+  text-lg font-medium items-center mt-40 justify-center'>
+    No favourite prodects yet
+  </div>  :   
+  <div style={{userSelect:'none'}} 
+className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>
+
+
+          
         <div  className={`flex items-center  
        ${favourite?.length % 4 === 0 ?  "justify-center" : 
          "justify-start "} mx-2
@@ -95,9 +98,9 @@ const Favourtepage = () => {
           ))
         }
         </div>
-}
+
       </div>
-   
+}   
    </>
   )
 }

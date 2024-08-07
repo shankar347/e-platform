@@ -71,8 +71,15 @@ const Login = () => {
       duration:5000
     })
      navigate('/')
-     setuser(data)
-     localStorage.setItem('token',JSON.stringify(data))
+    console.log(data)
+  
+    
+     var token=JSON.stringify({
+      token:data,
+      expiresAt:new Date().getTime() +  2 * 24 * 60 * 60 * 1000 
+    })
+    setuser(JSON.parse(token))  
+     localStorage.setItem('token',token)
     }
     catch(err)
     {

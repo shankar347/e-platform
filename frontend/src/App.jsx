@@ -25,13 +25,14 @@ import Paymentoptionpage from "./view/proudctpage/paymentoptionpage"
 function App() {
    
 
-  const user=useRecoilValue(useratom)
+  const user1=useRecoilValue(useratom)
+  const user=user1?.token
   const location=useLocation()
 
   const authpath=location.pathname === '/auth'
   const checkprofile=location.pathname ===  '/profile/address'
 
-  
+   console.log(user)  
 
   return (
     <>
