@@ -85,6 +85,7 @@ function App() {
       element={user && user?.isadmin ? <Adminorderpage/> 
       : <Navigate to={'/'}/>}/>     
      }
+     <Route path="*" element={<Navigate to={'/'}/>}/>
       </Routes>
      
       </div>
