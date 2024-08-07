@@ -84,14 +84,14 @@ const Register = () => {
               status:'success',
               duration:5000
             })
-           navigate('/profile/address') 
-    
+           
           var token=JSON.stringify({
             token:data,
             expiresAt:new Date().getTime() +  2 * 24 * 60 * 60 * 1000 
-          })
-          setuser(JSON.parse(token))  
+          })   
           localStorage.setItem('token',token)
+          setuser(JSON.parse(token))  
+          navigate('/profile/address') 
         }
         catch(err)
         {

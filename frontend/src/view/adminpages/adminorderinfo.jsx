@@ -7,8 +7,7 @@ const Adminorderinfo = ({order}) => {
   
 
    
-   const [user1,setuser]=useState(null)
-   const user=user1?.token
+   const [user,setuser]=useState(null)
    const [order1,setorder]=useState(order)
    const [update,setupdate]=useState(false)
    const [loading,setLoading]=useState(false)
@@ -16,7 +15,8 @@ const Adminorderinfo = ({order}) => {
    const {adminorders:orders,setadminorders:setorders} =useContext(prouductcontext) 
   //  console.log(updatedstatus)
   //  console.log(order1)
-  console.log(user?.address)
+  // console.log(user)
+  // console.log(user?.address)
   useEffect(()=>{
     const fetchuser=async()=>{
         try{

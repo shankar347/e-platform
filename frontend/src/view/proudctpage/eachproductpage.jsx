@@ -32,6 +32,17 @@ const Eachproductpage = () => {
 
    const createreview=async()=>{
     try{
+
+      if(reviewtext.length === 0)
+        {
+         toast({
+          description:'Write your review to add',
+          status:'error',
+          duration:3000
+         })
+         return
+        } 
+
     const res= await fetch(`/api/product/${productid}`,{
         method:'POST',
         headers: {
@@ -282,7 +293,7 @@ const Eachproductpage = () => {
        text-md hover:bg-orange-300 
        focus:bg-orange-300' 
        onClick={addtocart} >
-        {loading ? <Spinner/> : "Add to Cart" }   
+        {loading ? <Spinner h={'4'} w={'4'} /> : "Add to Cart" }   
        </button>
       </div>
      </div> 

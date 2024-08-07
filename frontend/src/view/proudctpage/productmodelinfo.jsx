@@ -172,7 +172,7 @@ const Productmodelinfo = ({product}) => {
      text-md hover:bg-orange-300 
      focus:bg-orange-300 mt-2 mx-auto'  
      onClick={addtocart} >
-        {loading ? <Spinner/> : 
+        {loading ? <Spinner  h={'4'} w={'4'}/> : 
         "Add to cart"}
          </button>
   

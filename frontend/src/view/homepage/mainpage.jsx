@@ -83,6 +83,18 @@ const [loading,setLoading]=useState(false)
 
   return (
     <>
+
+    {
+      topproducts.length ===0 && 
+      randomproduts.length ===0 && 
+      newproducts.length ===0 ? <div className='flex flex-col
+      justify-center items-center 
+      font-medium mt-60'>
+          No products are uploaded
+      </div>
+    
+    :
+    <>
     {
       loading ? <div className='flex w-full
       items-center justify-center mt-10'>
@@ -164,7 +176,8 @@ const [loading,setLoading]=useState(false)
           </div>
          </div>
     }
-   
+    </>
+}
    </>
   )
 }

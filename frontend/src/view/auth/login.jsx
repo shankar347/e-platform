@@ -78,7 +78,7 @@ const Login = () => {
       token:data,
       expiresAt:new Date().getTime() +  2 * 24 * 60 * 60 * 1000 
     })
-    setuser(JSON.parse(token))  
+     setuser(JSON.parse(token))  
      localStorage.setItem('token',token)
     }
     catch(err)

@@ -189,7 +189,7 @@ import useratom from '../atom/useratom'
       text-md hover:bg-orange-300 
       focus:bg-orange-300' 
       onClick={addtocart} >
-        {loading ? <Spinner/> :
+        {loading ? <Spinner  h={'4'} w={'4'}/> :
         "Add to cart"} 
       </button>
       </div>

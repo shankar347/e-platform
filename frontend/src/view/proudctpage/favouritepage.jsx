@@ -40,7 +40,7 @@ const Favourtepage = () => {
     return (
    <>
       <div className='flex  pl-2 pt-3 
-     justify-between'>
+     justify-between' style={{userSelect:'none'}}>
     <div className='flex flex-col gap-1
     md:flex-row  sm:flex-row md:items-center 
     lg:items-center  sm:items-center lg:flex-row'>

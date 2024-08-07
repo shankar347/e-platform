@@ -103,8 +103,13 @@ const Profileupdate = () => {
       status:'success'
      })
      navigate('/profile')
-     setuser(data)
-     localStorage.setItem('token',JSON.stringify(data))
+    
+     var token=JSON.stringify({
+      token:data,
+      expiresAt:new Date().getTime() +  2 * 24 * 60 * 60 * 1000 
+    })   
+     localStorage.setItem('token',token)
+     setuser(JSON.parse(token))
    }
    catch(err)
    {

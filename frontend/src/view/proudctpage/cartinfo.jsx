@@ -259,7 +259,7 @@ const Cartinfo = ({product,onClick,selected,setselected}) => {
      </div>
       </div>
     </div> : <div className='flex justify-center
-    items-center mt-10'>
+    items-center  mt-10'>
       <Spinner />
     </div>
    }
