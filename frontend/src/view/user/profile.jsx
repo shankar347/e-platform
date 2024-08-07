@@ -100,7 +100,7 @@ const Profile = () => {
      </div>
     <div 
     className='text-lg font-semibold'>
-    Welcome to Sravcart
+    Welcome to sravcart
       </div>  
      </div>
      <div className='flex flex-col

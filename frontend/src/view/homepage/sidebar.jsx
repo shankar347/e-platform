@@ -57,7 +57,7 @@ const Sidebar = () => {
      Hello  {user?.name}
     </div>
     <div className='text-lg pt-1 pl-3'>
-      Welcome to shopy
+      Welcome to sravcart
     </div>
     <div className='flex flex-wrap pt-5' 
     > 
