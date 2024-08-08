@@ -91,10 +91,18 @@ const Profile = () => {
 
 
   return (
-    <div style={{userSelect:'none'}}    className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>
+    <div style={{userSelect:'none'}}    className={`flex flex-col 
+    ${searchproduct ? "opacity-50 " :"" }`}>
+    <div className='flex flex-col justify-between gap-10 
+    md:gap-0 lg:gap-0 sm:gap-0 xl:gap-0 2xl:gap-0  
+     h-screen'>
+      <div className='flex  flex-col gap-2'>
      <div className=' flex flex-col w-[100%]'>  
-     <div className='flex flex-col sm:flex-row  md:flex-row lg:flex-row
+     
+     <div className='flex flex-col sm:flex-row  
+     md:flex-row lg:flex-row
       gap-2 pl-2 pt-5' >
+
      <div className='text-lg font-medium'>
      Hi {user?.name} !
      </div>
@@ -138,15 +146,17 @@ const Profile = () => {
       header={"Your Favourites"} img={productfavourite}/>
       </div>
      </div>
-     <div className='flex flex-col w-full mt-5 md:mt-10 lg:mt-10  ml-2'>
+     <div className='flex flex-col w-full pt-5 md:pt-10
+      lg:pt-10  ml-2'>
     <div className='flex gap-3'>
     <FaUserCircle className='w-8 h-8'/>
     <div className='text-lg flex mt-1  font-semibold'>
       User Profile
     </div>
     </div>
-    <div className='flex flex-col md:flex-row lg:flex-row justify-center 
-    gap-10 ml-5 mt-5'>
+    <div className='flex flex-col md:flex-row 
+    lg:flex-row justify-center 
+    gap-10 ml-5 pt-5'>
     <div className='flex gap-3'>
       <FaUser className='w-6 h-6'/>
      <div className='text-md font-medium  font-baseline'>
@@ -184,19 +194,23 @@ const Profile = () => {
     </div>
   }
     </div>
+        
+    </div>
     </div>
     <div>
-      <div className='flex flex-col md:flex-row lg:flex-row  w-full mt-8'>
+      <div className='flex flex-col md:flex-row lg:flex-row 
+       w-full  gap-10 
+    md:gap-0 lg:gap-0 sm:gap-0 xl:gap-0 2xl:gap-0  '>
       <div className='flex md:w-[50%]
        sm:w-[50%] lg:w-[50%] w-full 
-       flex-col pl-2  mt-5 '>
+       flex-col pl-2   '>
       <div className='flex w-full gap-3'>
        <FaMapMarkerAlt className='w-8 h-7'/>
-       <div className='text-lg mt-1 font-semibold'>
+       <div className='text-lg pt-1 font-semibold'>
         User Address
        </div>
          </div>
-        <div className='flex  mt-3 gap-5 pl-5'>
+        <div className='flex  pt-3 gap-5 pl-5'>
          {
           user?.address?.housenumber ||
           user?.address?.nearestplace || 
@@ -250,7 +264,7 @@ const Profile = () => {
        
 
       <div className='flex border-l-2 
-       border-gray-400 mt-5  flex-col md:w-[50%]
+       border-gray-400   flex-col md:w-[50%]
        sm:w-[50%] lg:w-[50%] w-full pl-3'>
        <div className='text-md hover:opacity-70 pb-1 border-b-2
        border-gray-300  
@@ -259,25 +273,27 @@ const Profile = () => {
         Edit Profile
         </div>    
         <div className='text-md hover:opacity-70 pb-1 border-b-2 
-       border-gray-300 mt-5 font-semibold cursor-pointer'
+       border-gray-300 pt-5 font-semibold cursor-pointer'
        onClick={()=>navigate(`/profile/address`)}>
         Edit Address
         </div> 
         <div className='text-md hover:opacity-70 pb-1 border-b-2 
-       border-gray-300 mt-5  font-semibold cursor-pointer'
+       border-gray-300 pt-5  font-semibold cursor-pointer'
         onClick={handledeleteaccount}
         > 
         Delete Account
         </div>    
 
         <div className='text-md hover:opacity-70 pb-1  
-         mt-5 font-semibold text-red-400 
+         pt-5 font-semibold text-red-400 
        cursor-pointer' 
        onClick={logoutaccount}>
         Logout
         </div>   
       </div>
       </div>
+    </div>
+         
     </div>
     </div>
   )

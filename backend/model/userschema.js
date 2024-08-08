@@ -31,7 +31,7 @@ const Userscema=new mongoose.Schema({
     phoneno:String,
     isadmin:{
         type:Boolean,
-        default:true
+        default:false
     },
     address:{
         type:addressschema,
