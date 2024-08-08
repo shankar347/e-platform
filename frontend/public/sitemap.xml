@@ -6,11 +6,5 @@
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
-    <url>
-        <loc>https://www.sravcart.in/about</loc>
-        <lastmod>2024-08-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
     <!-- Add more URLs as needed -->
 </urlset>
