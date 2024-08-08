@@ -1,6 +1,8 @@
 
 import React, { createContext, useEffect, useState } from 'react'
 import { useFetcher } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import useratom from '../atom/useratom'
 
 
 export const prouductcontext=createContext()
@@ -10,7 +12,7 @@ const Productcontext = ({children}) => {
  
 const [searchproduct,setsearchproduct]=useState(false)
 const [allproducts,setallproducts]=useState(null)
-const [allsiteproducts,setallsiteproducts]=useState(null)
+const [allsiteproducts,setallsiteproducts]=useState([])
 const [allcartproducts,setallcartproducts]=useState(null)
 const [cartloading,setcartloading]=useState(false)  
 const [searchtext,setsearchtext]=useState('')
@@ -20,6 +22,9 @@ const [totalamount,settotalamount]=useState(0)
 const [selected,setselected]=useState([])
 const [adminorders,setadminorders]=useState(null)
 console.log(allsiteproducts)  
+const user=useRecoilValue(useratom)
+const user1=user?.token
+
 useEffect(()=>{
 
   const getallproducts=async()=>{
@@ -35,7 +40,6 @@ useEffect(()=>{
     }
   }
  getallproducts()
-
 },[])
 
   return (
