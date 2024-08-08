@@ -85,11 +85,11 @@ const [loading,setLoading]=useState(false)
     <>
 
     {
-      topproducts.length ===0 && 
-      randomproduts.length ===0 && 
-      newproducts.length ===0 ? <div className='flex flex-col
+      topproducts?.length ===0 && 
+      randomproduts?.length ===0 && 
+      newproducts?.length ===0 ? <div className='flex flex-col
       justify-center items-center 
-      font-medium mt-60'>
+      font-medium mt-60' style={{userSelect:'none'}}>
           No products are uploaded
       </div>
     

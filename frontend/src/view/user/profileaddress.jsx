@@ -94,9 +94,9 @@ const Profileaddress = () => {
   return (
    <div className='  bg-[rgba(255,191,0,0.749)]  h-screen' 
    style={{userSelect:'none'}}>
-    <div className=' max-w-md w-full pt-20 px-5 mx-auto h-full '>
+    <div className=' max-w-md w-full pt-16 px-5 mx-auto h-full '>
      <h1 className='text-red-500 text-2xl
-     font-semibold mb-10'>Update Address</h1>
+     font-semibold mb-7'>Update Address</h1>
      
      <div className='flex flex-col w-full gap-2 mb-5'>
      <label htmlFor="" 
@@ -145,7 +145,7 @@ const Profileaddress = () => {
       outline-none'/>
      </div>
 
-     <div className='flex flex-col w-full gap-2 mb-5'>
+     <div className='flex flex-col w-full gap-2 mb-1'>
      <label htmlFor="" 
      className='text-md font-semibold '>Pincode</label>
      <input type="text" 
@@ -155,7 +155,9 @@ const Profileaddress = () => {
       className='w-full rounded pl-2  rounded-200 h-7 
       outline-none'/>
      </div>
-      
+      <div className='text-md pl-1 mb-5 text-red-500'>
+        * address must be in chennai city
+      </div>
       <div className='w-full justify-center flex'>
       <button onClick={updateprofileaddress}
       className='w-32 rounded-full h-12 
