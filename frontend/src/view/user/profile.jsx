@@ -94,7 +94,7 @@ const Profile = () => {
     <div style={{userSelect:'none'}}    className={`flex flex-col 
     ${searchproduct ? "opacity-50 " :"" }`}>
     <div className='flex flex-col justify-between gap-10 
-    md:gap-0 lg:gap-0 sm:gap-0 xl:gap-0 2xl:gap-0  
+    md:gap-0 lg:gap-0 sm:gap-10 xl:gap-0 2xl:gap-0  
      h-screen'>
       <div className='flex  flex-col gap-2'>
      <div className=' flex flex-col w-[100%]'>  

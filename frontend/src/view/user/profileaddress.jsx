@@ -71,10 +71,10 @@ const Profileaddress = () => {
       status:'success',
       duration:9000,
    })
-    
+   var existtoken=JSON.parse(localStorage.getItem('token')) 
    var token=JSON.stringify({
       token:data,
-      expiresAt:new Date().getTime() +  2 * 24 * 60 * 60 * 1000 
+      expiresAt:existtoken?.expiresAt 
     })   
 
      localStorage.setItem('token',token)

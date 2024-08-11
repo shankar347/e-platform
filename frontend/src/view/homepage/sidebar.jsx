@@ -59,7 +59,7 @@ const Sidebar = () => {
     <div className='text-lg pt-1 pl-3'>
       Welcome to sravcart
     </div>
-    <div className='flex flex-wrap pt-5' 
+    <div className='flex flex-wrap md:justify-center pt-5' 
     > 
     <Sideebarbtn name={'Your Account'} 
     onclickfunction={()=>navigate('/profile')}/> 
@@ -74,11 +74,13 @@ const Sidebar = () => {
     </div>
    { allsiteproducts && allsiteproducts.length !==0 && 
    <Imageslider />}   
-    <div className='absolute flex gap-3 items-center
+    <div className='absolute flex gap-3 sm:gap-0 md:gap-3  items-center
      left-1/2 transform -translate-x-1/2 bottom-2'>
      <img src={logo} 
      className='w-7 h-7 rounded' />
-    <div className='text-lg font-poppins font-semibold'>
+    <div className='text-lg 
+      md:hidden lg:block xl:block 2xl:block       
+      font-poppins font-semibold'>
      sravcart
     </div>
     </div>

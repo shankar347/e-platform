@@ -20,6 +20,7 @@ import Eachproductpage from "./view/proudctpage/eachproductpage"
 import Ordercreate from "./view/proudctpage/ordercreate"
 import Adminorderpage from "./view/adminpages/adminorderpage"
 import Paymentoptionpage from "./view/proudctpage/paymentoptionpage"
+import { useEffect } from "react"
 
 
 function App() {
@@ -31,8 +32,29 @@ function App() {
 
   const authpath=location.pathname === '/auth'
   const checkprofile=location.pathname ===  '/profile/address'
+  const navigate=useNavigate()
 
-   console.log(user)  
+  useEffect(()=>{
+    var token=JSON.parse(localStorage.getItem('token'))
+    if (token)
+    {
+       if(new Date().getTime() > token.expiresAt  )
+       {
+        localStorage.removeItem('token')
+        console.log('token validity expired')
+       }
+       else{
+        console.log('token is valid')
+       }
+    }
+    else{
+      console.log('no token found')
+      navigate('/auth')
+    }
+  },[])
+  
+
+  //  console.log(user)  
 
   return (
     <>

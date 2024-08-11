@@ -7,7 +7,7 @@ import Login from './login'
 const Auth = () => {
 
   const auth=useRecoilValue(authatom)
-
+  
   return (
     <>
     {
