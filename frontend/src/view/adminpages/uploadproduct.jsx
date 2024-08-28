@@ -166,7 +166,8 @@ const Uploadproduct = () => {
           onClick={()=>setimageurl(null)}
           className='bg-[rgb(244,174,44)] 
           hover:bg-[rgb(244,174,44)] w-5 h-5
-          absolute top-1 md:left-1/2 lg:left-1/2 right-20 rounded flex justify-center items-center '>
+          absolute top-1 md:left-1/2 lg:left-1/2 
+          right-20 rounded flex justify-center items-center '>
           <CloseButton className='w-5 h-5'/>        
                </div>
         )
