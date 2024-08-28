@@ -15,9 +15,10 @@ import useratom from '../atom/useratom'
     const [loading, setLoading] =useState(false)
     const user1=useRecoilValue(useratom)
     const user=user1?.token
+    // const user=user1
     const {allcartproducts,setallcartproducts} =useContext(prouductcontext)
     const navigate=useNavigate()
-    console.log(product  )
+    // console.log(product  )
    
     const pahtname=useLocation()
     const path=pahtname.pathname 

@@ -12,13 +12,13 @@ const Productsearchmodel = () => {
     }=useContext(prouductcontext)
     // console.log(searchtext)
     // console.log(allsiteproducts)
-   
+    console.log(allsiteproducts)
     const filteredproducts=allsiteproducts?.filter((product)=>(
       product.name.toLowerCase().includes(searchtext.toLowerCase())
     ))
-
+     
     
-  //  console.log(filteredproducts)
+   console.log(filteredproducts)
   
 
 

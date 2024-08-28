@@ -26,6 +26,7 @@ const Login = () => {
    
   const [authstate,setauth]=useRecoilState(authatom)
   const [user,setuser]=useRecoilState(useratom)
+  console.log(user)
   const [loading,setloading]=useState(false)
 
   const navigate=useNavigate()
@@ -70,16 +71,19 @@ const Login = () => {
       status:'success',
       duration:5000
     })
-     navigate('/')
-    console.log(data)
+
+    // console.log(data)
   
     
      var token=JSON.stringify({
       token:data,
       expiresAt:new Date().getTime() +   2 * 24* 60*   60 * 1000 
     })
-     setuser(JSON.parse(token))  
-     localStorage.setItem('token',token)
+     setuser(JSON.parse(token))
+    // setuser(data)  
+    localStorage.setItem('token',token)
+
+    navigate('/')
     }
     catch(err)
     {

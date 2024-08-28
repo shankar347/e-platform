@@ -14,7 +14,7 @@ const Authuser=async(req,res,next)=>{
     }
     
      const decoded=jwt.verify(token,process.env.JWT_KEY || '1QRRW1SFAFAFAQ')
-    console.log(decoded)
+     console.log(decoded)
     const user=await usermodel.findById(decoded.userid)
     
     req.user=user

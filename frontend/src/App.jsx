@@ -28,6 +28,7 @@ function App() {
 
   const user1=useRecoilValue(useratom)
   const user=user1?.token
+  // const user=user1
   const location=useLocation()
 
   const authpath=location.pathname === '/auth'
@@ -42,6 +43,7 @@ function App() {
        {
         localStorage.removeItem('token')
         console.log('token validity expired')
+        navigate('/auth')
        }
        else{
         console.log('token is valid')
@@ -51,7 +53,7 @@ function App() {
       console.log('no token found')
       navigate('/auth')
     }
-  },[])
+  },[navigate])
   
 
   //  console.log(user)  

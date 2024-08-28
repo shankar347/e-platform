@@ -15,8 +15,11 @@ const Imageslider = () => {
     {
     
       const inexarray=[]
-      var maxlength=5
-   
+      var maxlength= allsiteproducts.length < 5 ? allsiteproducts.length :
+        5
+      
+      console.log(maxlength)
+         
       while (inexarray.length < maxlength )
       {
         const randomindex=Math.floor(Math.random() * allsiteproducts?.length)

@@ -9,10 +9,11 @@ const generatejwt=(userid,res)=>{
     
     res.cookie('token',token,{
         httpOnly:true,
-        maxAge:2* 24* 60*   60*1000,
+        maxAge:2* 24* 60*  60*1000,
         sameSite:'strict'
     })
-
+    console.log(token)
+     
       return token
       } 
        catch(err)

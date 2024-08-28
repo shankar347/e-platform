@@ -15,9 +15,9 @@ const Mainpage = () => {
   const [topproducts,settopproducts]=useState(null)
   const [newproducts,setnewproducts]=useState(null)
   const [randomproduts,setrandomproducts]=useState(null)
-  // console.log(topproducts)
-  // console.log(randomproduts)
-  // console.log(newproducts)
+  console.log(topproducts)
+  console.log(randomproduts)
+  console.log(newproducts)
  
   
 
