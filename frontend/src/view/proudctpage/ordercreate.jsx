@@ -65,8 +65,9 @@ const Ordercreate = () => {
         return
       }
        setloading(true)
-       const fetchproductfromcart=details?.selected?.map(async(cartid)=>{
-       
+      
+       const fetchproductfromcart=details?.selected?.map(
+        async(cartid)=>{
         const cartres=await fetch(`/api/cart/${cartid}`,{
           method:'GET',
           headers:{
@@ -85,7 +86,7 @@ const Ordercreate = () => {
           'Content-Type':'application/json',
         },
         body:JSON.stringify({
-          products:fetchproductfromcartdata,
+           products:fetchproductfromcartdata,
            totalamount:details.totalprice
         })
        })

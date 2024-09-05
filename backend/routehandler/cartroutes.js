@@ -2,7 +2,7 @@ import cartmodel from "../model/cartschema.js"
 import productmodel from "../model/productschema.js"
 
 const createcart=async(req,res)=>{
-  const {productid,quantity} =req.body
+  const {productid,quantity,color} =req.body
   const userid=req.user._id
   try
   {
@@ -32,9 +32,12 @@ const createcart=async(req,res)=>{
    {
     cart.products.push({
         product:product._id,
-        quantity:quantity
+        quantity:quantity,
+        color:color
     })
    }
+
+   
 
    await cart.save()
    

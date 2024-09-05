@@ -15,6 +15,9 @@ const cartschema=new mongoose.Schema({
            quantity:{
            type:Number,
            default:1
+         },
+         color:{
+            type:String
          }
         }]
 },{timestamps:true})

@@ -7,7 +7,7 @@ const orderschema=new mongoose.Schema({
         ref:'User'
      },
      orderitems:[{
-        productid:{
+        product:{
             type:mongoose.Schema.Types.ObjectId,
             ref:'Product'
         },
@@ -18,6 +18,9 @@ const orderschema=new mongoose.Schema({
         price:{
             type:Number,
             default:0
+        },
+        color:{
+            type:String
         }
      }],
     totalprice:{

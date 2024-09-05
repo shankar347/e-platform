@@ -6,9 +6,9 @@ const createproduct=async(req,res)=>{
     
     try{
      
-        const {name,price,descreption} = req.body
+        const {name,price,descreption,colors} = req.body
         let {imageurl}=req.body
-
+        console.log(colors)
        
         if(imageurl)
      {
@@ -21,7 +21,8 @@ const createproduct=async(req,res)=>{
             name,
             price,
             image:imageurl,
-            descreption
+            descreption,
+            colors
         })
 
       await product.save()

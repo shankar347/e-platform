@@ -28,6 +28,9 @@ const productschema=new mongoose.Schema({
    rating:{
     type:Number,
    },
+   colors:{
+    type:String,
+   },
    reviews:[
     {
       user:{

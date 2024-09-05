@@ -9,6 +9,7 @@ const Uploadproduct = () => {
   const {imageurl,setimageurl,iamagechange} =Hanleimage()
   const [loading,setloading]=useState(false)
   const [name,setname]=useState('')
+  const [colors,setcolors]=useState('')
   const [descreption,setdescription]=useState('')
   const [price,setprice]=useState('')
   // console.log(imageurl)
@@ -41,7 +42,9 @@ const Uploadproduct = () => {
   const handlecreateproduct=async()=>{
     try
     {
-      if(!name || !price  || !imageurl)
+      if(!name || !price  || !imageurl || !descreption 
+        || !colors
+      )
       {
         toast({
           description:'Provide all the fields to upload',
@@ -62,7 +65,8 @@ const Uploadproduct = () => {
           name:name,
           price:price,
           imageurl:imageurl,
-          descreption:descreption
+          descreption:descreption,
+          colors:colors
         })
        })
        const data=await res.json()
@@ -84,6 +88,7 @@ const Uploadproduct = () => {
        setimageurl(null)
        setname('')
        setprice('')
+       setcolors('')
        setdescription('')
        setallproducts(data)
     }
@@ -96,6 +101,7 @@ const Uploadproduct = () => {
     }
   }
 
+  
 
   return (
     <div className='flex flex-col mx-5 max-w-md lg:mx-auto
@@ -125,6 +131,16 @@ const Uploadproduct = () => {
       border-blue-400 rounded h-8'
       value={price}
       onChange={(e)=>setprice(e.target.value)} />
+     </div>
+     <div className='flex flex-col mt-5  w-full'>
+      <div className='text-md font-medium'>
+       Colors
+      </div>
+      <input type="text" className='w-full pl-2 
+      ml-0 border-2 mt-1
+      border-blue-400 rounded h-8'
+      value={colors} placeholder='Enter comma between colors'
+      onChange={(e)=>setcolors(e.target.value)} />
      </div>
      <div className='flex flex-col mt-5  w-full'>
       <div className='text-md font-medium '>

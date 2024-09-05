@@ -15,6 +15,7 @@ const Eachproductpage = () => {
    const [reviewtext,setreviewtext]=useState('')
    const [editreviewtext,seteditreviewtext]=useState('')
    const [edit,setedit]=useState(false)
+   const [productcolor,setproductcolor]=useState('')
   //  const [reviewcreate,setreviewcreate]=useState(false)
 
    console.log(product)
@@ -29,7 +30,11 @@ const Eachproductpage = () => {
    const user1=useRecoilValue(useratom)
    const user=user1?.token
    const inputref=useRef(null)
+   const colorsarray=product?.colors?.split(',')
+    console.log(colorsarray)
 
+  const defaultcolor=colorsarray ? colorsarray[0] : '' 
+  
    const createreview=async()=>{
     try{
 
@@ -120,7 +125,8 @@ const Eachproductpage = () => {
         },
         body:JSON.stringify({
           productid:product._id,
-           quantity:1
+           quantity:1,
+           color:productcolor === '' ? defaultcolor : productcolor 
         })
       })
       const data=await res.json()
@@ -229,6 +235,10 @@ const Eachproductpage = () => {
       console.log(err)
     }
   }
+  
+  console.log(productcolor)
+  
+
 
   return (
    <>
@@ -285,6 +295,29 @@ const Eachproductpage = () => {
          ₹{product?.price}
          </div>
        </div>
+       {
+        product?.colors &&   <div className='flex gap-3 pt-1'>
+        <div className='md:text-lg lg:text-lg text-md'>
+         Color
+        </div>
+        <div className='text-gray-700
+        text-md items-center '>
+         {
+           colorsarray?.map((color,i)=>(
+              <div key={i}>
+                  <input type="radio" 
+                 //  checked={productcolor === color}
+                  onChange={(e)=>setproductcolor(e.target.value)}  
+                  value={color} name='color'/> 
+                   <label className="ml-2"> 
+                     {color}
+                   </label>
+              </div>
+           ))
+         }
+        </div>
+      </div>
+       }
        <button className='bg-[rgb(244,174,44)] 
        rounded-full md:w-48 lg:w-48 sm:w-32
        w-28  py-1  ml-5
@@ -356,7 +389,7 @@ const Eachproductpage = () => {
         '>
        
         {
-        !reviewloading &&  allreviews?.length !==0 ?  
+         !reviewloading &&  allreviews?.length !==0 ?  
         allreviews?.map((review)=>(
              <div className='flex flex-col my-2 
              border-b-2 py-1  mx-auto 

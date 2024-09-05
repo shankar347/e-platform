@@ -2,13 +2,15 @@ import { Avatar, Spinner } from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from 'react'
 import Timecompnent from '../hooks/timecompnent'
 import { prouductcontext } from '../proudctpage/productcontext'
+import { useNavigate } from 'react-router-dom'
 
 const Adminorderinfo = ({order}) => {
   
 
-   
+   const navigate=useNavigate()
    const [user,setuser]=useState(null)
    const [order1,setorder]=useState(order)
+  //  console.log(order1?.orderitems.map)
    const [update,setupdate]=useState(false)
    const [loading,setLoading]=useState(false)
    const [updatedstatus,setupdatedstatus]=useState(order?.status || null)
@@ -35,7 +37,7 @@ const Adminorderinfo = ({order}) => {
 
 
   
-  console.log(user)
+  // console.log(user)
 
   const handleupdate=async(status)=>{
     try{
@@ -143,6 +145,8 @@ const Adminorderinfo = ({order}) => {
      }
       </div>
     </div>
+    
+    <div className='flex text-sm'> 
     <div className='flex flex-col pl-2'>
       <div className='flex gap-4'>
       {
@@ -153,51 +157,79 @@ const Adminorderinfo = ({order}) => {
         
       }    
        {
-        !user?.address?.streetname &&
+        user?.address?.streetname &&
         <div className='font-medium text-md'>
-          kuyvar street
+           {user?.address?.streetname}
         </div>       
       }  
       </div>
       {
-        !user?.address?.area &&
+        user?.address?.area &&
         <div className='font-medium text-md'>
-          t nagar
+          {user?.address?.area}
         </div>       
       }  
 
       <div className='flex gap-2'>
       {
-        !user?.address?.nearestplace &&
+        user?.address?.nearestplace &&
         <div className='font-medium text-md'>
-          amman kovil
+          {user?.address?.nearestplace}
         </div>       
       }  
        {
-        !user?.address?.pincode &&
+        user?.address?.pincode &&
         <div className='font-medium text-md'>
-          603109
+        {user?.address?.pincode}
         </div>       
       }  
 
 
-
        </div>
 
+    </div>   
+    <div className='flex flex-col text-sm font-medium ml-2' >
+      <div>
+        Products
+      </div>
+      
+      {order1?.orderitems?.map((item)=>(
+            <div className='flex flex-col'>
+              <div className=' hover:text-gray-700 cursor-pointer'
+               onClick={()=>navigate(`/${user._id}/${item?.product?._id}`)}
+               >
+              {item?.product?._id}
+              </div>
+             {
+              item?.color &&  <div className='flex items-center gap-2'>
+              <div className=''>
+               Color:
+              </div>
+              <div>
+               {item?.color}
+              </div>
+             </div>
+             }
+            </div>
+          ))}
     </div>
-    <div className='flex gap-4 items-center  px-2'>
-     <div className='flex flex-col'>
+     </div>
+
+    <div className='flex gap-4 mt-1 items-center  px-2'>
+     <div className='flex text-sm flex-col'>
      <div className='text-md font-medium'>
         Order id
        </div>
-       <div className='text-md font-medium'>
+       <div className='text-md font-medium 
+      ' 
+      >
         {order1?._id}
        </div>
        </div>
       {
         !update ?
         <button className='w-28 h-9 rounded-full
-        bg-[rgb(244,174,44)] cursor-pointer
+        bg-[rgb(244,174,44)] font-medium cursor-pointer
         focus:bg-orange-400
         hover:bg-orange-400'
         onClick={()=>setupdate(true)}>

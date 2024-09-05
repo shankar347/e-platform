@@ -21,7 +21,8 @@ const Navbar = () => {
  
   return (
     <div className='w-[100%] h-10 flex items-center
-     bg-[rgb(244,174,44)]  navbar  ' style={{userSelect:'none'}}>
+     bg-[rgb(244,174,44)]  navbar  '
+      style={{userSelect:'none'}}>
      <div className='flex  md:gap-3 lg:gap-3 sm:gap-3
      gap-1   md:pl-5 items-center
      lg:pl-5 sm:pl-4 pl-2'>

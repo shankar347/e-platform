@@ -39,7 +39,7 @@ const getorder=async(req,res)=>{
   
   try{
    const orders=await ordermodel.find({userid:req.params.id})
-   .populate("orderitems.productid")
+   .populate("orderitems.product")
    
    if(!orders || orders.length===0)
    {  
@@ -58,7 +58,7 @@ const getallorders=async(req,res)=>{
   try{
     const orders=await ordermodel.find().sort(
       {createdAt:-1})
-    .populate('orderitems.productid')
+    .populate('orderitems.product')
 
     if(!orders)
     {
