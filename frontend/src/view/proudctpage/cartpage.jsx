@@ -131,7 +131,8 @@
       const user=user1.token
       return (
       <div style={{userSelect:'none'}} 
-      className={`flex flex-col ${searchproduct ? "opacity-50 " :"" }`}>
+      className={`flex flex-col ${searchproduct ? 
+      "opacity-50 " :"" }`}>
           <div className='flex  pl-2 pt-3 
           justify-between'>
           <div className='flex flex-col md:flex-row

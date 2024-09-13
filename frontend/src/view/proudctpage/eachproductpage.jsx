@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import star from '../../assets/star.png'
 import { prouductcontext } from './productcontext'
 import { Avatar, Spinner, useToast } from '@chakra-ui/react'
 import { useRecoilValue } from 'recoil'
 import useratom from '../atom/useratom'
-import { FaCheck, FaTicketAlt, FaTimes } from 'react-icons/fa'
+import { FaCheck, FaEdit, FaRecycle, FaTicketAlt, FaTimes, FaTrash } from 'react-icons/fa'
+import { MdDelete, MdUpdate } from 'react-icons/md'
+
 
 const Eachproductpage = () => {
 
@@ -21,10 +23,10 @@ const Eachproductpage = () => {
    console.log(product)
  
    const [loading, setLoading] =useState(false)
-   const {allcartproducts,setallcartproducts} =useContext(prouductcontext)
+   const {allcartproducts,setallcartproducts,setallsiteproducts} =useContext(prouductcontext)
    const [reviewloading,setreviewloading]=useState(false)
    const [productloading,setproductloading]=useState(false)
-
+   const navigate=useNavigate()
 
    const toast=useToast()
    const user1=useRecoilValue(useratom)
@@ -35,6 +37,53 @@ const Eachproductpage = () => {
 
   const defaultcolor=colorsarray ? colorsarray[0] : '' 
   
+  const handleproductdelete=async()=>{
+     try{
+      const res=await fetch(`/api/product/admin/${product?._id}`,{
+        method:'DELETE',
+        headers:{
+          'Content-Type':'application/json',
+        }
+      }
+      )
+      if (res.ok)
+      {
+      const res1=await fetch('/api/product')  
+      const data=await res1.json()
+      if (data?.error)
+      {
+        toast({
+          status:'error',
+          description:data?.error,
+          duration:2000
+        })
+        return
+      }
+      toast({
+        status:'success',
+        description:"Product deleted",
+        duration:2000
+      })
+      setallsiteproducts(data)
+      navigate('/')
+      }  
+      const errdata=await res.json()
+      if (errdata?.error)
+        {
+          toast({
+            status:'error',
+            description:errdata?.error,
+            duration:2000
+            })
+            return
+          } 
+     }
+     catch(err)
+     {
+      console.log(err)
+     }
+  }
+
    const createreview=async()=>{
     try{
 
@@ -249,7 +298,7 @@ const Eachproductpage = () => {
     </div> :
      <div style={{userSelect:'none'}} className='flex 
      flex-col'>
-      <div className='flex mt-5   
+      <div className='flex mt-5  relative
       md:gap-20 lg:gap-20 sm:gap-20  
        md:pl-6 lg:pl-6 pl-1 gap-2'>
       <div className='md:w-[250px] 
@@ -295,6 +344,15 @@ const Eachproductpage = () => {
          ₹{product?.price}
          </div>
        </div>
+       <div className='flex gap-2 pt-4'>
+         <div className='md:text-lg lg:text-lg text-md'>
+         Stock
+         </div>
+         <div className='text-gray-700 
+         text-md font-medium  '>
+         {product?.stock} Nos
+         </div>
+       </div>
        {
         product?.colors &&   <div className='flex gap-3 pt-1'>
         <div className='md:text-lg lg:text-lg text-md'>
@@ -329,6 +387,16 @@ const Eachproductpage = () => {
         {loading ? <Spinner h={'4'} w={'4'} /> : "Add to Cart" }   
        </button>
       </div>
+    { 
+      user?.isadmin && 
+      <div 
+      className='absolute right-5  flex gap-2'>
+       <FaTrash color='gray' 
+       onClick={handleproductdelete}/>
+       <FaEdit color='gray' 
+       onClick={()=>navigate(`/admin/${product._id}/productedit`)}/>
+       </div>
+    }
      </div> 
      <div className='font-medium md:pl-10 
      lg:pl-10 sm:pl-10 pl-3

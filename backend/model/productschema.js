@@ -31,6 +31,10 @@ const productschema=new mongoose.Schema({
    colors:{
     type:String,
    },
+   stock:
+   {
+    type:String,
+   },
    reviews:[
     {
       user:{

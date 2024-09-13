@@ -2,8 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import Hanleimage from '../hooks/handleimagechange'
 import { CloseButton, Spinner, useToast } from '@chakra-ui/react'
 import { prouductcontext } from '../proudctpage/productcontext'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import useratom from '../atom/useratom'
 
-const Uploadproduct = () => {
+const Updateproduct = () => {
 
   const imageref=useRef(null)
   const {imageurl,setimageurl,iamagechange} =Hanleimage()
@@ -13,14 +16,61 @@ const Uploadproduct = () => {
   const [stock,setstock]=useState('')
   const [descreption,setdescription]=useState('')
   const [price,setprice]=useState('')
+  const [product,setproduct]=useState(null)
+  const navigate=useNavigate()
   // console.log(imageurl)
   // console.log(name)
   // console.log(price)
-
-  const {allproducts,setallproducts}=useContext(prouductcontext)
+  const {id}=useParams()
+  const user=useRecoilValue(useratom)
+//   console.log(id)
+  const {allproducts,setallproducts,
+    setallsiteproducts
+  }=useContext(prouductcontext)
   console.log(allproducts)
 
   const toast=useToast()
+
+
+  useEffect(()=>{
+  
+    const getproduct=async()=>{
+    try{
+        const res=await fetch(`/api/product/${id}`)
+        const data=await res.json()
+        setproduct(data)
+    }
+    catch(e)
+    {
+        console.log(err)
+    }
+    }
+    getproduct()
+  },[])
+
+  useEffect(()=>{
+   
+    if(product?.name)
+    {
+        setname(product?.name)
+    }
+    if(product?.price)
+    {
+        setprice(product?.price)
+    }
+    if(product?.colors)
+    {
+        setcolors(product?.colors)
+    }
+    if(product?.stock)
+     {
+        setstock(product?.stock)
+     }
+    if(product?.descreption)
+    {
+        setdescription(product?.descreption)
+    }
+  },[product])
 
   useEffect(()=>{
   
@@ -39,16 +89,16 @@ const Uploadproduct = () => {
     getallproducts()
   },[imageurl])
   
-
+ console.log(product?._id)
   const handlecreateproduct=async()=>{
     try
     {
-      if(!name || !price  || !imageurl || !descreption 
-        || !colors || !stock
+      if(!name && !price  && !imageurl && !descreption 
+        && !colors && !stock
       )
       {
         toast({
-          description:'Provide all the fields to upload',
+          description:'Provide any fields to edit',
           status:'error',
           duration:3000
         })
@@ -57,8 +107,8 @@ const Uploadproduct = () => {
 
 
        setloading(true)
-       const res=await fetch(`/api/product`,{
-        method:'POST',
+       const res=await fetch(`/api/product/admin/${product?._id}`,{
+        method:'PUT',
         headers:{
           'content-Type':'application/json'
         },
@@ -71,29 +121,45 @@ const Uploadproduct = () => {
           stock:stock
         })
        })
-       const data=await res.json()
-
-       if(data.error)
+       if (res.ok)
        {
+        const res1=await fetch('/api/product')
+        const data=await res1.json()
+
+        if(data.error)
+        {
+         toast({
+           title:data.error,
+           status:'error',
+           duration:3000,
+         })
+         return
+        } 
+        setallsiteproducts(data)
         toast({
-          title:data.error,
-          status:'error',
-          duration:3000,
+            description:'Product Edited successfully',
+            status:'success',
+            duration:3000
+           })
+           setimageurl(null)
+           setname('')
+           setprice('')
+           setcolors('')
+           setdescription('')
+           setstock('')
+           setallproducts(data)
+           navigate(`/${user?._id}/${product?._id}`)
+       }
+      const errdata=await res.json()
+      if(errdata?.error)
+      {
+        toast({
+            status:'error',
+            description:errdata?.error,
+            duration:3000
         })
         return
-       }
-       toast({
-        description:'Product Uploaded successfully',
-        status:'success',
-        duration:3000
-       })
-       setimageurl(null)
-       setname('')
-       setprice('')
-       setcolors('')
-       setdescription('')
-       setstock('')
-       setallproducts(data)
+      }    
     }
     catch(err)
     {
@@ -113,7 +179,7 @@ const Uploadproduct = () => {
       style={{userSelect:'none'}}>
      <div className='text-lg text-red-400 font-medium mt-10 
      text-center mb-4'>
-      Upload Product
+      Edit Product
      </div>
      <div className='flex flex-col  w-full'>
       <div className='text-md font-medium'>
@@ -210,11 +276,11 @@ const Uploadproduct = () => {
      hover:bg-red-300 focus:bg-red-300
      rounded-full text-white cursor-pointer md:mt-10
      lg:mt-10 sm:mt-10 mt-5 mb-2 text-center'>
-      {loading ? <Spinner/> : "Create"}
+      {loading ? <Spinner/> : "Update"}
      </button>
      </div>
     </div>
   )
 }
 
-export default Uploadproduct
+export default Updateproduct

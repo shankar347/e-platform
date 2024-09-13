@@ -6,7 +6,7 @@ const createproduct=async(req,res)=>{
     
     try{
      
-        const {name,price,descreption,colors} = req.body
+        const {name,price,descreption,colors,stock} = req.body
         let {imageurl}=req.body
         console.log(colors)
        
@@ -22,7 +22,8 @@ const createproduct=async(req,res)=>{
             price,
             image:imageurl,
             descreption,
-            colors
+            colors,
+            stock
         })
 
       await product.save()
@@ -38,6 +39,10 @@ const createproduct=async(req,res)=>{
         res.json(err?.message)
      }
 }
+
+
+
+
 
 const getproduct=async(req,res)=>{
   
@@ -153,26 +158,39 @@ const getrandomproduct=async(req,res)=>{
 
 const updateproduct=async(req,res)=>{
    
-    const {name,price,image,descreption,stock}=req.body;
-
+    const {name,price,descreption,colors,stock} = req.body
+    let {imageurl}=req.body
+    const {id} =req.params
     try
     {
-     const product=await productmodel.findById(req.params._id)
-
+     const product=await productmodel.findById(id)
+    //  console.log(req.params._id)
+    
       if(!product)
       {
         return res.json({error:'Product not found'})
       } 
-     
+      console.log(product)
       const updatedetails={ }
    
       if(name) updatedetails.name= name || product.name
       if(price) updatedetails.price = price || product.price
-      if(image)  updatedetails.image =image || product.image 
-      if(descreption) updatedetails.descreption || product.descreption
-      if(stock)  updatedetails.stock || product.stock
+      if(imageurl)  
+        {
+            await cloudinary.uploader.destroy(
+                product.image.split('/').pop().split('.')[0]
+            )
 
-      const newproduct=await productmodel.findByIdAndUpdate(req.params._id,
+            let uploadurl=await cloudinary.uploader.upload(imageurl)
+            imageurl=uploadurl.secure_url
+        } 
+      if(imageurl) updatedetails.image= imageurl || product.image  
+      if(descreption) updatedetails.descreption = descreption || product.descreption
+      if(stock)  updatedetails.stock = stock|| product.stock
+      if(colors)  updatedetails.colors = colors || product.colors
+
+
+      const newproduct=await productmodel.findByIdAndUpdate(id,
         updatedetails,
         {new:true}
       )

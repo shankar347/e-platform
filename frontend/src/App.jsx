@@ -21,6 +21,7 @@ import Ordercreate from "./view/proudctpage/ordercreate"
 import Adminorderpage from "./view/adminpages/adminorderpage"
 import Paymentoptionpage from "./view/proudctpage/paymentoptionpage"
 import { useEffect } from "react"
+import Updateproduct from "./view/adminpages/updateproduct"
 
 
 function App() {
@@ -98,6 +99,9 @@ function App() {
          <Navigate to={'/auth'}/>}/>
       <Route path="/admin/productupload"
       element={user && user?.isadmin ? <Uploadproduct/> 
+      : <Navigate to={'/auth'}/>}/>
+        <Route path="/admin/:id/productedit"
+      element={user && user?.isadmin ? <Updateproduct/> 
       : <Navigate to={'/auth'}/>}/>
       <Route path="/:userid/:productid"   
       element={user ? <Eachproductpage/> : <Navigate to={'/auth'}/>}/>
